@@ -13,8 +13,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-
-        //$users = \App\Models\User::paginate(10);
+        //get data users
         $users = DB::table('users')
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%'.$name.'%');
